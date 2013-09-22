@@ -1,5 +1,7 @@
 var onSuccess = function(acceleration) {
-    document.getElementById('inputAccel').value = acceleration.x + ' x ' + acceleration.y + ' x ' + acceleration.z + ' x '      + acceleration.timestamp;
+    document.getElementById('inputAccelX').value = Math.round(acceleration.x * 1000) / 1000;
+    document.getElementById('inputAccelY').value = Math.round(acceleration.y * 1000) / 1000;
+    document.getElementById('inputAccelZ').value = Math.round(acceleration.z * 1000) / 1000;
 };
 
 var onError = function() {
@@ -9,4 +11,4 @@ var onError = function() {
 var accelTest = function() {
     navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }
-document.getElementById('aAccel').onclick = accelTest;
+setInterval(accelTest, 1000)
