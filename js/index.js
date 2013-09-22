@@ -17,4 +17,5 @@ jQuery(function($) {
         navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
     }
     setInterval(accelTest, 2000)
+    $('#aAccel').click(accelTest);
 });
